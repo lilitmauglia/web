@@ -1,0 +1,61 @@
+
+<html>
+
+    <style>
+
+        #spieler {
+            position: absolute;
+            font-size: x-large;
+            top: 50%;
+            left: 50%;
+        }
+
+    </style>
+
+    <body>
+
+        <div id="spieler">🐲</div>
+        
+        <script>
+
+            spieler = document.getElementById('spieler');
+
+            function move(e) {
+
+                e = e || window.event;
+
+                console.log(e.code);
+
+                var rect = spieler.getBoundingClientRect();
+                console.log(rect);
+                var top = rect.y;
+                var left = rect.x;
+
+                // Oben
+                if (e.code == 'ArrowUp') {
+                    top -= 10;
+                }
+                // Unten
+                else if (e.code == 'ArrowDown') {
+                    top += 10;
+                }
+                // Links
+                else if (e.code == 'ArrowLeft') {
+                    left -= 10;
+                }
+                // Rechts
+                else if (e.code == 'ArrowRight') {
+                    left += 10;
+                }
+
+                spieler.style.left = left;
+                spieler.style.top = top;
+
+            }
+
+            document.addEventListener('keydown', move);
+
+        </script>
+
+    </body>
+</html>
