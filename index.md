@@ -4,7 +4,7 @@
         <style>
             body {
                 background-color: turquoise;
-                margin: 10em;
+                margin: 10%;
                 line-height: 1.5;
             }
         </style>
