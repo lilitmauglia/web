@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+        body {
+            font-size: 48px;
+        }
+        #maus {
+            position: relative;
+        }
+        #kese {
+            position: relative;
+            left: 50%;
+            top: 50%;
+        }
+        #spinne {
+            font-size: 100px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="maus">🐭</div>
+    <div id="kese">🧀</div>
+    <div id="spinne">🕷️</div>
+    <script>
+
+        const mouse = document.getElementById('mouse');
+        
+        document.addEventListener('keydown', function(e) {
+            const top = parseInt(window.getComputedStyle(mouse).top) || 0;
+            const left = parseInt(window.getComputedStyle(mouse).left) || 0;
+
+            console.log({ top, left, code: e.code });
+
+            // Oben
+            if (e.code == 'ArrowUp' && top > 0) {
+                mouse.style.top = (top - 10) + 'px';
+            }
+            // Unten
+            else if (e.code == 'ArrowDown') {
+                mouse.style.top = (top + 10) + 'px';
+            }
+            // Links
+            else if (e.code == 'ArrowLeft' && left > 0) {
+                mouse.style.left = (left - 10) + 'px';
+            }
+            // Rechts
+            else if (e.code == 'ArrowRight') {
+                mouse.style.left = (left + 10) + 'px';
+            }
+
+        });
+    </script>
+</body>
+</html>
